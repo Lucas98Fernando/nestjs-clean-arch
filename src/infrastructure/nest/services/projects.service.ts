@@ -1,31 +1,31 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { CreateProjectDto } from 'domain/dto/create-project.dto';
 import { UpdateProjectDto } from 'domain/dto/update-project.dto';
-import { Repository } from 'typeorm';
-import { Project } from 'domain/entities/project.entity';
-import { InjectRepository } from '@nestjs/typeorm';
+import { CreateProjectUseCase } from 'application/usecases/create-project.usecase';
+import { IProjectRepository } from 'interfaces/IProjectRepository';
+import { FindAllProjectsUseCase } from 'application/usecases/find-all-projects.usecase';
+import { FindProjectByIdUseCase } from 'application/usecases/find-project-by-id.usecase';
 
 @Injectable()
 export class ProjectsService {
   constructor(
-    @InjectRepository(Project)
-    private respository: Repository<Project>,
+    @Inject('IProjectRepository')
+    private readonly projectRepository: IProjectRepository,
   ) {}
 
   async create(createProjectDto: CreateProjectDto) {
-    const project = new Project(createProjectDto);
-    this.respository.create(project);
-    await this.respository.save(project);
-
-    return project;
+    const useCase = new CreateProjectUseCase(this.projectRepository);
+    await useCase.execute(createProjectDto);
   }
 
-  findAll() {
-    return `This action returns all projects`;
+  async findAll() {
+    const useCase = new FindAllProjectsUseCase(this.projectRepository);
+    return await useCase.execute();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} project`;
+  async findById(id: string) {
+    const useCase = new FindProjectByIdUseCase(this.projectRepository);
+    return await useCase.execute(id);
   }
 
   update(id: number, updateProjectDto: UpdateProjectDto) {
