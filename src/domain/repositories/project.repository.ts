@@ -15,8 +15,8 @@ export class ProjectRepository implements IProjectRepository {
     await this.respository.save(project);
   }
 
-  update(project: Project): Promise<void> {
-    throw new Error('Method not implemented.');
+  async update(project: Project): Promise<void> {
+    await this.respository.update({ id: project.id }, project);
   }
 
   async findAll(): Promise<Project[]> {
@@ -24,6 +24,10 @@ export class ProjectRepository implements IProjectRepository {
   }
 
   async findById(id: string): Promise<Project> {
-    return await this.respository.findOneBy({ id: id });
+    return await this.respository.findOneBy({ id });
+  }
+
+  async remove(id: string): Promise<void> {
+    await this.respository.delete({ id });
   }
 }

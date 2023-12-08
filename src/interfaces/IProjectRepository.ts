@@ -5,4 +5,5 @@ export interface IProjectRepository {
   update(project: Project): Promise<void>;
   findAll(): Promise<Project[]>;
   findById(id: string): Promise<Project>;
+  remove(id: string): Promise<void>;
 }
