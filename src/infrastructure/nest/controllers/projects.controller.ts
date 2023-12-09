@@ -7,9 +7,8 @@ import {
   Param,
   Delete,
 } from '@nestjs/common';
-import { ProjectsService } from '../services/projects.service';
-import { CreateProjectDto } from 'domain/dto/create-project.dto';
-import { UpdateProjectDto } from 'domain/dto/update-project.dto';
+import { ProjectsService } from '@app/infrastructure';
+import { CreateProjectDto, UpdateProjectDto } from '@app/domain';
 
 @Controller('projects')
 export class ProjectsController {

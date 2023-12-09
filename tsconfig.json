@@ -17,5 +17,22 @@
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
+    "paths": {
+      // Application 
+      "@app/application": ["application"],
+      "@app/application/*": ["application/*"],
+
+      // Domain
+      "@app/domain": ["domain"],
+      "@app/domain/*": ["domain/*"],
+
+      // Interfaces
+      "@app/interfaces": ["interfaces"],
+      "@app/interfaces/*": ["interfaces/*"],
+
+       // Infrastructure
+       "@app/infrastructure": ["infrastructure"],
+       "@app/infrastructure/*": ["infrastructure/*"],
+    }
   }
 }

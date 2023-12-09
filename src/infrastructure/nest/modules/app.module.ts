@@ -1,10 +1,12 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { AppController } from '../controllers/app.controller';
-import { AppService } from '../services/app.service';
-import { ProjectsModule } from './projects.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { dataSourceOptions } from 'infrastructure/typeorm/config/data-source';
+import { ProjectsModule } from './projects.module';
+import {
+  AppService,
+  dataSourceOptions,
+  AppController,
+} from '@app/infrastructure';
 
 @Module({
   imports: [

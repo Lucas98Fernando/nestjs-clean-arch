@@ -1,12 +1,13 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { CreateProjectDto } from 'domain/dto/create-project.dto';
-import { UpdateProjectDto } from 'domain/dto/update-project.dto';
-import { CreateProjectUseCase } from 'application/usecases/create-project.usecase';
-import { IProjectRepository } from 'interfaces/IProjectRepository';
-import { FindAllProjectsUseCase } from 'application/usecases/find-all-projects.usecase';
-import { FindProjectByIdUseCase } from 'application/usecases/find-project-by-id.usecase';
-import { UpdateProjectUseCase } from 'application/usecases/update-project.usecase';
-import { RemoveProjectUseCase } from 'application/usecases/remove-project.usecase ';
+import { CreateProjectDto, UpdateProjectDto } from '@app/domain';
+import {
+  CreateProjectUseCase,
+  FindAllProjectsUseCase,
+  FindProjectByIdUseCase,
+  RemoveProjectUseCase,
+  UpdateProjectUseCase,
+} from '@app/application';
+import { IProjectRepository } from '@app/interfaces';
 
 @Injectable()
 export class ProjectsService {
