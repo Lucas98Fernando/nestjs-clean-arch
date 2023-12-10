@@ -1,7 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { CreateProjectDto } from 'domain/dto/create-project.dto';
-import { Project } from 'domain/entities/project.entity';
-import { IProjectRepository } from 'interfaces/IProjectRepository';
+import { Project, CreateProjectDto } from '@app/domain';
+import { IProjectRepository } from '@app/interfaces';
 
 @Injectable()
 export class CreateProjectUseCase {

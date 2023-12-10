@@ -1,7 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { UpdateProjectDto } from 'domain/dto/update-project.dto';
-import { Project } from 'domain/entities/project.entity';
-import { IProjectRepository } from 'interfaces/IProjectRepository';
+import { Project, UpdateProjectDto } from '@app/domain';
+import { IProjectRepository } from '@app/interfaces';
 
 @Injectable()
 export class UpdateProjectUseCase {

@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { IProjectRepository } from 'interfaces/IProjectRepository';
+import { IProjectRepository } from '@app/interfaces';
 
 @Injectable()
 export class RemoveProjectUseCase {
