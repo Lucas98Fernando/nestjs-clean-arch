@@ -24,7 +24,7 @@ export class ProjectRepository implements IProjectRepository {
   }
 
   async findById(id: string): Promise<Project> {
-    return await this.respository.findOneBy({ id });
+    return await this.respository.findOneOrFail({ where: { id } });
   }
 
   async remove(id: string): Promise<void> {

@@ -1,4 +1,4 @@
-import { IsDate, IsNotEmpty, IsOptional } from 'class-validator';
+import { IsDateString, IsNotEmpty, IsOptional } from 'class-validator';
 
 export class CreateProjectDto {
   @IsNotEmpty()
@@ -8,10 +8,10 @@ export class CreateProjectDto {
   description: string;
 
   @IsOptional()
-  @IsDate()
+  @IsDateString()
   started_at: Date | null;
 
   @IsOptional()
-  @IsDate()
+  @IsDateString()
   forecasted_at: Date | null;
 }

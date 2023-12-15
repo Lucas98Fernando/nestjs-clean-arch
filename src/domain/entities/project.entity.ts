@@ -25,6 +25,9 @@ export class Project {
   @Column({ name: 'cancelled_at', nullable: true, type: 'timestamp' })
   cancelled_at: Date | null;
 
+  @Column({ name: 'finished_at', nullable: true, type: 'timestamp' })
+  finished_at: Date | null;
+
   @Column({ name: 'forecasted_at', nullable: true, type: 'timestamp' })
   forecasted_at: Date | null;
 
